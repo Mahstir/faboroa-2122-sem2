@@ -60,10 +60,17 @@ router.post('/api/items', async context => {
 	try{
 		const token = context.request.headers.get('Authorization')
 		console.log(`auth: ${token}`)
+		context.response.headers.set('Content-Type', 'application/json')
+		const credentials = extractCredentials(token)
+		console.log(credentials)
+		const username = await login(credentials)
+		console.log(`username: ${username}`)
+		const uname = JSON.stringify(username)
+		console.log(uname)
 		const body  = await context.request.body()
 		const data = await body.value
 		console.log(data)
-		await createItem(data)
+		await createItem(data, username)
 		context.response.status = 201
 		context.response.body = JSON.stringify(
 			{
@@ -88,6 +95,40 @@ router.post('/api/items', async context => {
 	}
 	
 })
+
+// router.post('/api/items', async context => {
+// 	console.log('POST /api/items')
+// 	try{
+// 		const token = context.request.headers.get('Authorization')
+// 		console.log(`auth: ${token}`)
+// 		const body  = await context.request.body()
+// 		const data = await body.value
+// 		console.log(data)
+// 		await createItem(data)
+// 		context.response.status = 201
+// 		context.response.body = JSON.stringify(
+// 			{
+// 				data: {
+// 					message: 'item created'
+// 				}
+// 			}
+// 		)	
+
+// 	} catch (err){
+// 		context.response.status = 400
+// 		context.response.body = JSON.stringify(
+// 			{
+// 				errors: [
+// 					{
+// 						title: 'a problem occurred',
+// 						detail: err.message
+// 					}
+// 				]
+// 			}
+// 		)
+// 	}
+	
+// })
 
 router.post('/api/files', async context => {
 	console.log('POST /api/files')

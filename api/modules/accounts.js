@@ -27,9 +27,16 @@ export async function register(credentials) {
 	return true
 }
 
-export async function createItem(auction) {
+export async function createItem(auction, username) {
 	const {name, description} = auction
-	const sql = `INSERT INTO items(name, description) VALUES("${auction.name}", "${auction.description}")`
+	let getid = `SELECT id FROM accounts WHERE user="${username}";`
+	let id = await db.query(getid)
+	const myid = id[0].id
+	console.log(myid)
+    var today = new Date()
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate()
+	console.log(date)
+	const sql = `INSERT INTO items(name, description, account, dateAdded) VALUES("${auction.name}", "${auction.description}", "${myid}", "${date}")`
 	console.log(sql)
 	await db.query(sql)
 	return true
