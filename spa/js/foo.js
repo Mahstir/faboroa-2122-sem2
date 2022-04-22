@@ -53,6 +53,12 @@ async function uploadData() {
 	console.log('form submitted')
 	const formData = new FormData(event.target)
 	const data = Object.fromEntries(formData.entries())
+	console.log(data)
+	const element = document.querySelector('input[name="file"]')
+	console.log(element)
+	const file = document.querySelector('input[name="file"]').files[0]
+ 	file.base64 = await file2DataURI(file)
+ 	file.user = localStorage.getItem('username')
 	const url ='/api/items'
 	const options = {
 		method: 'POST',

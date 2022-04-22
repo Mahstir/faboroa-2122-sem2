@@ -68,8 +68,11 @@ router.post('/api/items', async context => {
 		const uname = JSON.stringify(username)
 		console.log(uname)
 		const body  = await context.request.body()
+		console.log(body)
 		const data = await body.value
 		console.log(data)
+		const imageFile = dataURLtoFile(data.file.base64, data.file.user)
+		// console.log(imageFile)
 		await createItem(data, username)
 		context.response.status = 201
 		context.response.body = JSON.stringify(
@@ -94,6 +97,32 @@ router.post('/api/items', async context => {
 		)
 	}
 	
+})
+
+
+router.get('/items/:id', async context => {
+	try {
+		const token = context.request.headers.get('Authorization')
+		console.log(`auth: ${token}`)
+		const id  = context.params.id
+		const item = await getItem(id)
+		console.log(item)
+		context.response.status = Status.OK
+		const data = { status: 200, data: item }
+		context.response.body = JSON.stringify(item, null, 2)
+	} catch(err) {
+		context.response.status = 400
+		context.response.body = JSON.stringify(
+			{
+				errors: [
+					{
+						title: 'a problem occurred',
+						detail: err.message
+					}
+				]
+			}
+		)
+	}
 })
 
 // router.post('/api/items', async context => {

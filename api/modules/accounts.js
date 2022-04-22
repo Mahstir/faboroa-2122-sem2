@@ -28,7 +28,7 @@ export async function register(credentials) {
 }
 
 export async function createItem(auction, username) {
-	const {name, description} = auction
+	const {name, description, file} = auction
 	let getid = `SELECT id FROM accounts WHERE user="${username}";`
 	let id = await db.query(getid)
 	const myid = id[0].id
@@ -36,10 +36,19 @@ export async function createItem(auction, username) {
     var today = new Date()
     var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate()
 	console.log(date)
-	const sql = `INSERT INTO items(name, description, account, dateAdded) VALUES("${auction.name}", "${auction.description}", "${myid}", "${date}")`
+	const sql = `INSERT INTO items(name, description, account, dateAdded, file) VALUES("${auction.name}", "${auction.description}", "${myid}", "${date}", "${auction.file.base64}")`
 	console.log(sql)
 	await db.query(sql)
 	return true
 }
+
+export async function getItem(id) {
+	const {name, description, file} = auction
+	let sql = `SELECT * FROM items WHERE account="${id}";`
+	console.log(sql)
+	await db.query(sql)
+	return true
+}
+
 
 

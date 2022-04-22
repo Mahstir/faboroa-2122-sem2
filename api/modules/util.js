@@ -29,6 +29,7 @@ export async function fileExists(path) {
 }
 
 export function dataURLtoFile(dataURL, username) {
+	console.log(username)
 	const [ metadata, base64Image ] = dataURL.split(';base64,')
 	const extension = metadata.split('/').pop()
 	const filename = `${username}-${Date.now()}.${extension}`
