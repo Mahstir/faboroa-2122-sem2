@@ -32,12 +32,12 @@ export async function createItem(auction, username) {
 	let getid = `SELECT id FROM accounts WHERE user="${username}";`
 	let id = await db.query(getid)
 	const myid = id[0].id
-	console.log(myid)
+	//console.log(myid)
     var today = new Date()
     var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate()
-	console.log(date)
+	//console.log(date)
 	const sql = `INSERT INTO items(name, description, account, dateAdded, file) VALUES("${auction.name}", "${auction.description}", "${myid}", "${date}", "${auction.file.base64}")`
-	console.log(sql)
+	//console.log(sql)
 	await db.query(sql)
 	return true
 }
@@ -47,15 +47,15 @@ export async function myItem(username) {
 	let id = `SELECT id FROM accounts WHERE user="${user}";`
 	let records = await db.query(id)
 	//console.log(records)
-	let userItems = `SELECT name, description FROM items WHERE account="${records[0].id}";`
+	let userItems = `SELECT name, description, file FROM items WHERE account="${records[0].id}";`
 	const result = await db.query(userItems)
-	console.log(result)
+	//console.log(result)
 	return result
 }
 
 export async function getItems() {
-	let sql = `SELECT name, description FROM items;`
-	console.log(sql)
+	let sql = `SELECT name, description,file FROM items;`
+	//console.log(sql)
 	const result = await db.query(sql)
 	return result
 }

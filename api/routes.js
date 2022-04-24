@@ -24,11 +24,11 @@ router.get('/api/items', async context => {
 	context.response.headers.set('Content-Type', 'application/json')
 	try {
 		const credentials = extractCredentials(token)
-		console.log(credentials)
+		//console.log(credentials)
 		const username = await login(credentials)
 		const allItems = await getItems()
-		console.log(allItems)
-		console.log(`username: ${username}`)
+		//console.log(allItems)
+		//console.log(`username: ${username}`)
 		context.response.body = JSON.stringify(
 			{
 				data: { allItems }
@@ -51,15 +51,15 @@ router.get('/api/items', async context => {
 router.get('/api/items/useritems', async context => {
 	//console.log('GET /api/accounts')
 	const token = context.request.headers.get('Authorization')
-	console.log(`auth: ${token}`)
+	//console.log(`auth: ${token}`)
 	context.response.headers.set('Content-Type', 'application/json')
 	try {
 		const credentials = extractCredentials(token)
-		console.log(credentials)
+		//console.log(credentials)
 		const username = await login(credentials)
 		const allItems = await myItem(username)
-		console.log(allItems)
-		console.log(`username: ${username}`)
+		//console.log(allItems)
+		//console.log(`username: ${username}`)
 		context.response.body = JSON.stringify(
 			{
 				data: { allItems }
@@ -124,18 +124,18 @@ router.post('/api/items', async context => {
 	console.log('POST /api/items')
 	try{
 		const token = context.request.headers.get('Authorization')
-		console.log(`auth: ${token}`)
+		//console.log(`auth: ${token}`)
 		context.response.headers.set('Content-Type', 'application/json')
 		const credentials = extractCredentials(token)
-		console.log(credentials)
+		//console.log(credentials)
 		const username = await login(credentials)
-		console.log(`username: ${username}`)
+		//console.log(`username: ${username}`)
 		const uname = JSON.stringify(username)
-		console.log(uname)
+		//console.log(uname)
 		const body  = await context.request.body()
-		console.log(body)
+		//console.log(body)
 		const data = await body.value
-		console.log(data)
+		//console.log(data)
 		const imageFile = dataURLtoFile(data.file.base64, data.file.user)
 		// console.log(imageFile)
 		await createItem(data, username)

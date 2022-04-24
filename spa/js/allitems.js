@@ -20,7 +20,7 @@ export async function setup(node) {
 }
 
 async function addContent(node) {
-	const response = await fetch('https://riversecond-couragecool-8080.codio-box.uk/api/items/useritems', {
+	const response = await fetch('https://riversecond-couragecool-8080.codio-box.uk/api/items', {
 		method: 'GET',
 		headers: {
 			'Content-Type': 'application/vnd.api+json',
@@ -30,11 +30,14 @@ async function addContent(node) {
 	
 	const items = await response.json()
 	console.log(items)
-	const template = document.getElementById('myitems')
+	const template = document.getElementById('allitems')
 	for( const item of items.data.allItems) {
 		const fragment = template.content.cloneNode(true)
 		fragment.querySelector('h2').innerText = item.name
 		fragment.querySelector('h3').innerText = item.description
+        // var isrc = "data:image/jpeg;base64,";
+        // isrc += item.file;
+        fragment.querySelector('img').src = item.file
 		//fragment.querySelector('p').innerText = quote.dateadded
 		// fragment.querySelector('figure').innerText= quote.image
 		node.appendChild(fragment)

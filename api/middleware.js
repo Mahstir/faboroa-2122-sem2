@@ -53,7 +53,7 @@ async function authHeaderPresent(context, next) {
 		return // we don't want to continue this script on unwind
 	}
 
-	if(path === '/api/accounts' && method === 'POST') {
+	if(path === '/api/accounts' && method === 'POST'){
 		console.log('account registration so auth header not needed')
 		await next()
 		return
