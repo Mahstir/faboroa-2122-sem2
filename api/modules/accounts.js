@@ -50,5 +50,13 @@ export async function getItem(id) {
 	return true
 }
 
+export async function getItems() {
+	let sql = `SELECT name, description FROM items;`
+	console.log(sql)
+	const result = await db.query(sql)
+	return result
+}
+
+
 
 

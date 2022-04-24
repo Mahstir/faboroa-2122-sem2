@@ -1,4 +1,3 @@
-
 /* middleware.js */
 
 import { Application, send, Status } from 'oak'
