@@ -3,7 +3,7 @@
 
 import { Router } from 'oak'
 import { extractCredentials, dataURLtoFile } from 'util'
-import { login, register, createItem, getItems } from 'accounts'
+import { login, register, createItem, getItems, myItem } from 'accounts'
 
 
 const router = new Router()
@@ -48,7 +48,7 @@ router.get('/api/items', async context => {
 	}
 })
 
-router.get('/api/items', async context => {
+router.get('/api/items/useritems', async context => {
 	//console.log('GET /api/accounts')
 	const token = context.request.headers.get('Authorization')
 	console.log(`auth: ${token}`)
@@ -57,7 +57,7 @@ router.get('/api/items', async context => {
 		const credentials = extractCredentials(token)
 		console.log(credentials)
 		const username = await login(credentials)
-		const allItems = await getItems()
+		const allItems = await myItem(username)
 		console.log(allItems)
 		console.log(`username: ${username}`)
 		context.response.body = JSON.stringify(

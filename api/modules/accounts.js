@@ -42,12 +42,15 @@ export async function createItem(auction, username) {
 	return true
 }
 
-export async function getItem(id) {
-	const {name, description, file} = auction
-	let sql = `SELECT * FROM items WHERE account="${id}";`
-	console.log(sql)
-	await db.query(sql)
-	return true
+export async function myItem(username) {
+	const user = username
+	let id = `SELECT id FROM accounts WHERE user="${user}";`
+	let records = await db.query(id)
+	//console.log(records)
+	let userItems = `SELECT name, description FROM items WHERE account="${records[0].id}";`
+	const result = await db.query(userItems)
+	console.log(result)
+	return result
 }
 
 export async function getItems() {
