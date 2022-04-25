@@ -1,16 +1,16 @@
 
 /* foo.js */
 
-console.log('FOO')
+console.log('Sell New Item')
 
 import { customiseNavbar, file2DataURI, loadPage, router, secureGet, showMessage } from '../util.js'
 
 export async function setup(node) {
-	console.log('FOO: setup')
+	console.log('Sell New Item: setup')
 	try {
 		console.log(node)
 		document.querySelector('header p').innerText = 'Foobar'
-		customiseNavbar(['home', 'logout', 'foo'])
+		customiseNavbar(['allitems','myitems', 'logout', 'foo'])
 		if(localStorage.getItem('authorization') === null) {
 			history.pushState(null, null, '/login')
 			await router()
@@ -43,7 +43,6 @@ async function uploadData() {
 		},
 		body: JSON.stringify(data)
 	}
-	console.log('checking to see if it gets here')
 	const response = await fetch(url, options)
 	console.log(response)
 	const json = await response.json()

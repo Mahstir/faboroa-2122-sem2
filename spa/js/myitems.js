@@ -34,9 +34,10 @@ async function addContent(node) {
 	for( const item of items.data.allItems) {
 		const fragment = template.content.cloneNode(true)
 		fragment.querySelector('h2').innerText = item.name
-		fragment.querySelector('h3').innerText = item.description
-		//fragment.querySelector('p').innerText = quote.dateadded
-		// fragment.querySelector('figure').innerText= quote.image
+		let date = item.dateAdded
+		date = date.split('T')[0]
+		fragment.querySelector('h3').innerText = date
+		fragment.querySelector('img').src = item.file
 		node.appendChild(fragment)
 	}
 	

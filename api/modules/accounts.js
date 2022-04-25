@@ -47,14 +47,15 @@ export async function myItem(username) {
 	let id = `SELECT id FROM accounts WHERE user="${user}";`
 	let records = await db.query(id)
 	//console.log(records)
-	let userItems = `SELECT name, description, file FROM items WHERE account="${records[0].id}";`
+	let userItems = `SELECT name, description, file, dateAdded FROM items WHERE account="${records[0].id}";`
 	const result = await db.query(userItems)
 	//console.log(result)
 	return result
 }
 
 export async function getItems() {
-	let sql = `SELECT name, description,file FROM items;`
+	let sql = `SELECT i.name, i.dateAdded, a.user, i.description,file FROM items as i JOIN accounts as a ON i.account = a.id;`
+	//Select i.name, i.description, a.user FROM items as i JOIN accounts as a ON i.account = a.id WHERE i.account = 8;
 	//console.log(sql)
 	const result = await db.query(sql)
 	return result

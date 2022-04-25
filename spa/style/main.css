@@ -60,6 +60,15 @@ aside {
 	border-radius: 0.2em;
 }
 
+img {
+     width: 100px;
+	 border: 2px solid gray;
+	 padding: 5px;
+   }
+img:hover {
+      box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.5);
+   }
+
 .hidden {
 	display: none;
 }
