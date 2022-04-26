@@ -22,11 +22,14 @@ GRANT INSERT, SELECT, UPDATE, DELETE ON website.* TO websiteuser;
     CREATE TABLE IF NOT EXISTS items (
     id SMALLINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(25),
-    description VARCHAR(50),
+    description VARCHAR(500),
     dateAdded DATETIME,
     sellersPhoneNumber VARCHAR(25),
     sellersEmailAddress VARCHAR(25),
-    sold bool,
+    file LONGBLOB,
+    account MEDIUMINT(8) UNSIGNED,
+    FOREIGN KEY (account) REFERENCES accounts(id),
+    sold bool
 );
 
 -- INSERT INTO items(name, description) VALUES("test", "changes");

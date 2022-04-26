@@ -33,4 +33,5 @@ async function login() {
 		document.querySelector('input[name="pass"]').value = ''
 		showMessage(response.json.errors[0].detail)
 		}
+		loadPage('allitems')
 }

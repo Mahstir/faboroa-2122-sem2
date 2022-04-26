@@ -36,11 +36,13 @@
 body, h1, p2, p {
 	margin: 0;
 	padding: 0;
+	color: white;
+	
 }
 
 body {
 	font-family: droid-sans, verdana, arial, sans-serif;
-	background-color: var(--colorBackground);
+	background-color: rgb(65, 4, 4);
 }
 
 /* ========= MESSAGE ========== */
@@ -61,7 +63,7 @@ aside {
 }
 
 img {
-     width: 100px;
+     width: 400px;
 	 border: 2px solid gray;
 	 padding: 5px;
    }
@@ -75,7 +77,7 @@ img:hover {
 
 /* ========== HEADER ========== */
 header {
-	background-color: var(--colorPrimary);
+	background-color: black;
 	color: var(--colorOnPrimary);
 	padding: 1em;
 	padding-bottom: 0.1em;
@@ -98,6 +100,7 @@ header p {
 
 nav {
 	visibility: hidden;
+	background-color: black;
 }
 
 nav ul {
@@ -108,7 +111,7 @@ nav ul {
 	flex-direction: row;
 	flex-wrap: nowrap;
 	align-items: center;
-	background-color: var(--colorPrimary);
+	background-color: black;
 	/* height: 3em; */
 	justify-content: flex-start;
 }
@@ -150,15 +153,19 @@ nav li:hover {
 
 /* =========== MAIN =========== */
 
+article p {
+	color: white;
+}
+
 main {
 	margin: 1em;
 	margin-top: 1em;
 }
 
 main > article {
-	max-width: 600px;
+	max-width: 1200px;
 	margin: auto;
-	background-color: var(--colorSurface);
+	background-color: black;
 	box-shadow : 2px 2px 2px lightgrey;
 	margin-top: 1em;
 	padding: 1em;
@@ -166,13 +173,14 @@ main > article {
 
 main p {
 	font-size: 0.8em;
-	color: var(--colorOnBackground);
+	color: white;
 }
 
 /* =========== FORM =========== */
 
 form p {
 	margin-top: 1em;
+	color: white;
 }
 
 input[type="text"], input[type="email"], input[type="password"], textarea, select {
@@ -207,3 +215,15 @@ button:hover {
 }
 
 /* ========== FOOTER ========== */
+.flex-container {
+    display: flex;
+    color: lightgray;
+   
+}
+.flex-child {
+    flex: 1;
+    /* border: 2px solid gray; */
+}  
+.flex-child:first-child {
+    margin-right: 20px;
+}
