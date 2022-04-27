@@ -1,9 +1,9 @@
 
 /* routes.js */
 
-import { Router } from 'oak'
-import { extractCredentials, dataURLtoFile } from 'util'
-import { login, register, createItem, getItems, myItem } from 'accounts'
+import { Router } from 'https://deno.land/x/oak@v10.4.0/mod.ts'
+import { extractCredentials, dataURLtoFile } from './api/modules/util.js'
+import { login, register, createItem, getItems, myItem } from './api/modules/accounts.js'
 
 
 const router = new Router()

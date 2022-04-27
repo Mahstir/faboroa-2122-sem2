@@ -2,8 +2,8 @@
 
 // $ deno test --allow-all api/test/unit/accounts2.test.js
 
-import { assertEquals, fail } from 'asserts'
-import { login } from 'accounts'
+import { assertEquals, fail } from 'https://deno.land/std@0.130.0/testing/asserts.ts'
+import { login } from '../../api/modules/accounts.js'
 
 Deno.test({
 	name: 'checks valid username and password',

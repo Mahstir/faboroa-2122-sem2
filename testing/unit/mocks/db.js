@@ -1,7 +1,7 @@
 
 /* FAKE db.js */
 
-import { delay } from 'delay'
+import { delay } from 'https://deno.land/x/delay@v0.2.0/mod.ts'
 
 const lookup = {
 	'SELECT count(id) AS count FROM accounts WHERE user="doej";' : [ { count: 1 } ],

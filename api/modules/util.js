@@ -1,9 +1,9 @@
 
 /* util.js */
 
-import { etag } from 'oak'
-import { Base64 } from 'bb64'
-import { Md5 } from 'md5'
+import { etag } from 'https://deno.land/x/oak@v10.4.0/mod.ts'
+import { Base64 } from 'https://deno.land/x/bb64@1.1.0/mod.ts'
+import { Md5 } from 'https://deno.land/std@0.129.0/hash/md5.ts'
 
 export function extractCredentials(token) {
 	if(token === undefined) throw new Error('no auth header')

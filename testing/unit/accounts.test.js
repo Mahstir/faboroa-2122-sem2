@@ -1,10 +1,10 @@
 
 /* accounts.test.js */
 
-import { assertEquals } from 'asserts'
-import { delay } from 'delay'
+import { assertEquals } from 'https://deno.land/std@0.130.0/testing/asserts.ts'
+import { delay } from 'https://deno.land/x/delay@v0.2.0/mod.ts'
 
-import { login } from 'accounts'
+import { login } from '../../api/modules/accounts.js'
 
 Deno.test('checks valid username and password', async () => {
 	try {
