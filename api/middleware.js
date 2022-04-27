@@ -171,7 +171,7 @@ async function setHeaders(context, next) {
 	context.response.headers.set('charset', 'utf-8')
 	context.response.headers.set('Access-Control-Allow-Origin', '*')
 	context.response.headers.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE')
-	context.response.headers.set('Access-Control-Allow-Headers', 'X-Requested-With,content-type')
+	context.response.headers.set('Access-Control-Allow-Headers', '*')
 	context.response.headers.set('Access-Control-Allow-Credentials', true)
 	await next()
 }
