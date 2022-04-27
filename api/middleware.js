@@ -2,7 +2,7 @@
 
 import { Application, send, Status } from 'oak'
 import { extractCredentials, fileExists, getEtag } from 'util'
-import { login, register } from './api/modules/accounts.js'
+import { login, register } from './modules/accounts.js'
 import { contentType } from 'mediaTypes'
 
 import router from 'routes'
