@@ -4,6 +4,7 @@ import { Application, send, Status } from 'https://deno.land/x/oak@v10.4.0/mod.t
 import { extractCredentials, fileExists, getEtag } from './modules/util.js'
 import { login, register } from './modules/accounts.js'
 import { contentType } from 'https://deno.land/x/media_types/mod.ts'
+import { oakCors } from "https://deno.land/x/cors/mod.ts";
 
 import router from './routes.js'
 
@@ -184,6 +185,7 @@ async function defaultResponse(context) {
 	context.response.body = data
 }
 
+app.use(oakCors());
 app.use(errorHandler)
 app.use(setHeaders)
 app.use(staticFiles)
