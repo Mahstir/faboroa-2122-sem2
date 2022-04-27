@@ -3,7 +3,7 @@
 
 import app from './api/middleware.js'
 
-const port = 8080
+const port = 5000
 
 app.addEventListener('listen', ({ port }) => console.log(`listening on port: ${port}`))
 
