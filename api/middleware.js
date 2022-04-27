@@ -1,7 +1,7 @@
 /* middleware.js */
 
 import { Application, send, Status } from 'https://deno.land/x/oak@v10.4.0/mod.ts'
-import { extractCredentials, fileExists, getEtag } from './api/modules/util.js'
+import { extractCredentials, fileExists, getEtag } from './modules/util.js'
 import { login, register } from './modules/accounts.js'
 import { contentType } from 'https://deno.land/x/media_types/mod.ts'
 
