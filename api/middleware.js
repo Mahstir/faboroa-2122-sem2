@@ -185,8 +185,12 @@ async function defaultResponse(context) {
 	context.response.body = data
 }
 
-app.use(oakCors());
 app.use(errorHandler)
+app.use(
+    oakCors({
+      origin: "https://riversecond-couragecool-5000.codio-box.uk"
+    }),
+);
 app.use(setHeaders)
 app.use(staticFiles)
 app.use(checkContentType)
