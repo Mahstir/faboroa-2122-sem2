@@ -20,7 +20,7 @@ export async function setup(node) {
 }
 
 async function addContent(node) {
-	const response = await fetch('https://riversecond-couragecool-8080.codio-box.uk/api/items/useritems', {
+	const response = await fetch('/api/items/useritems', {
 		method: 'GET',
 		headers: {
 			'Content-Type': 'application/vnd.api+json',
