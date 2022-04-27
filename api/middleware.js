@@ -3,7 +3,7 @@
 import { Application, send, Status } from 'oak'
 import { extractCredentials, fileExists, getEtag } from 'util'
 import { login, register } from './modules/accounts.js'
-import { contentType } from 'mediaTypes'
+import { contentType } from 'https://deno.land/x/media_types/mod.ts'
 
 import router from 'routes'
 
