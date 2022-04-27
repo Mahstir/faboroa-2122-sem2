@@ -2,7 +2,7 @@
 /* accounts.js */
 
 import { compare, genSalt, hash } from 'https://deno.land/x/bcrypt@v0.3.0/mod.ts'
-import { db } from './api/modules/db.js'
+import { db } from './db.js'
 
 const saltRounds = 10
 const salt = await genSalt(saltRounds)
