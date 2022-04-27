@@ -7,7 +7,7 @@ export async function setup(node) {
 	console.log('items: setup')
 	try {
 		console.log(node)
-		document.querySelector('header p').innerText = 'Home'
+		document.querySelector('header p').innerText = 'My Items'
 		customiseNavbar(['home', 'foo', 'allitems', 'myitems', 'logout']) // navbar if logged in
 		const token = localStorage.getItem('authorization')
 		console.log(token)

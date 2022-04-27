@@ -183,9 +183,18 @@ form p {
 	color: white;
 }
 
+form textarea {
+	font-size: 1.5em;
+}
+
+form input {
+	font-size: 1.5em;
+}
+
+
 input[type="text"], input[type="email"], input[type="password"], textarea, select {
 	background-color: var(--colorBackground);
-	font-size: 0.8em;
+	font-size: 1.5em;
 	min-width: 240px;
 	max-width: 400px;
 	border: none;

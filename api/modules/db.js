@@ -14,10 +14,10 @@ const connectionData = {
 		db: 'website'
 	},
 	'/app': {
-		hostname: 'HOSTNAME',
-		username: 'USERNAME',
-		password: 'PASSWORD',
-		db: 'DATABASE'
+		hostname: 'us-cdbr-east-05.cleardb.net',
+		username: 'b6e7fbfa82d52f',
+		password: '7b08d88b',
+		db: 'heroku_f68a7f9a72cf9ce'
 	}
 }
 
