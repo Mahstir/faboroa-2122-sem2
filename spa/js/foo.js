@@ -9,7 +9,7 @@ export async function setup(node) {
 	console.log('Sell New Item: setup')
 	try {
 		console.log(node)
-		document.querySelector('header p').innerText = 'Sell New Item'
+		document.getElementById('username').innerText = localStorage.getItem('username')
 		customiseNavbar(['allitems','myitems', 'logout', 'foo'])
 		if(localStorage.getItem('authorization') === null) {
 			history.pushState(null, null, '/login')

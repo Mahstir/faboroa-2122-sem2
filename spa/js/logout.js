@@ -6,7 +6,7 @@ import { customiseNavbar, loadPage, showMessage } from '../util.js'
 export async function setup(node) {
 	try {
 		console.log('LOGOUT: setup')
-		customiseNavbar(['home', 'foo'])
+		customiseNavbar(['allitems', 'foo'])
 		node.querySelectorAll('button').forEach( button => button.addEventListener('click', event => {
 			console.log(event.target.innerText)
 			if(event.target.innerText === 'OK') {
